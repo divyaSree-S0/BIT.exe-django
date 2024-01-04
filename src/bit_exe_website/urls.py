@@ -15,14 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from registration.views import LoginView,SignupView,HomepageView,LoginSliderView,RegisterView,IndexView
+from registration.views import LoginView,AboutView,ConveyorView,ProfileView,SignupView,HomeView,RealtimeMaintenanceView,SystemDetailsView,UserPageView,CreateSystemView,VerificationView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/',LoginView,name='login'),
-    path('loginslider/',LoginSliderView,name='loginslider'),
+    path('',HomeView,name='home'),
+    # path('indexan',indexview),
+    path('about/',AboutView,name='about'),
+    # path('contact/',ContactView,name='contact'),
+    path('conveyor/',ConveyorView,name='conveyor'),
+    path('profile/',ProfileView,name='profile'),
+    # path('maintenance/',MaintenanceView,name='maintenance'),
+    # path('test/',TestView,name='test'),
     path('signup/',SignupView,name='signup'),
-    path('',HomepageView,name='homepage'),
-    path('register/',RegisterView,name='register'),
-    path('index/',IndexView,name='index'),
+    # path('home/',HomeView,name='home'),
+    path('realtime/',RealtimeMaintenanceView,name='realtime'),
+    path('systemdetails/',SystemDetailsView,name='systemdetails'),
+    path('userpage/',UserPageView,name='userpage'),
+    path('createsystem/',CreateSystemView,name='createsystem'),
+    path('verification/',VerificationView,name='verification'),
+    # path('send_otp/', send_otp, name='send_otp'),
+    # path('verify_otp/', verify_otp, name='verify_otp'),
 ]
