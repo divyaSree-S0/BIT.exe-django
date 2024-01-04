@@ -79,17 +79,43 @@ WSGI_APPLICATION = 'bit_exe_website.wsgi.application'
 
 DATABASES = {
     'default': {
-          'ENGINE': 'djongo',
-          'NAME': 'BIT_exe',
-          'HOST': 'localhost',
-          'PORT': 27017,
-      }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'mongodb': {
+        'ENGINE': 'djongo',
+        'NAME': 'BIT_exe',
+        'HOST': 'localhost',
+        'PORT': 27017,
+        'ENFORCE_SCHEMA':False,
+    }
 }
+DATABASE_ROUTERS = ['registration.router.DBRouter']
 
+# DATABASES = {
+#     'default': {
+#           'ENGINE': 'djongo',
+#           'NAME': 'BIT_exe',
+#           'HOST': 'localhost',
+#           'PORT': 27017,
+#           'ENFORCE_SCHEMA':False,
+#       }
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.sqlite3',
+#     #     'NAME': BASE_DIR / 'db.sqlite3',
+#     # }
+# }
+# AUTHENTICATION_BACKENDS = ['registration.backends.MongoDBBackend']
+
+# settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # if you're using SendGrid
+# EMAIL_HOST = 'your-smtp-server.com'  # Replace with your SMTP server
+EMAIL_PORT = 587  # Use the appropriate port for your SMTP server
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'demo73717733.com'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'Demomail01&'  # Replace with your email password
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
